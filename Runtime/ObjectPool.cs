@@ -16,7 +16,7 @@ namespace LittleBit.Modules.Pool
         private bool Initialized { get; set; }
         private bool HasPooledObjects => _pooledObjects.Count > 0;
 
-        private Transform ObjectParent
+        public Transform ObjectParent
         {
             get
             {
@@ -63,6 +63,7 @@ namespace LittleBit.Modules.Pool
         {
             GameObject poolableInstance = _creatorPoolObject.InstantiatePrefab(_template);
             poolableInstance.name = _name + " (Pooled)";
+            poolableInstance.transform.SetParent(ObjectParent);
             return poolableInstance;
         }
 
