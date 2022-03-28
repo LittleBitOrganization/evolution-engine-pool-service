@@ -23,6 +23,7 @@ namespace LittleBit.Modules.Pool
                 if (!_objectParent)
                 {
                     _objectParent = _creatorPoolObject.CreateEmptyGameObject($"{_name} Pool").transform;
+                    _objectParent.gameObject.SetActive(false);
                 }
 
                 return _objectParent;
@@ -33,6 +34,7 @@ namespace LittleBit.Modules.Pool
         {
             _creatorPoolObject = creatorPoolObject;
             _template = template;
+            _template.SetActive(false);
             _name = name;
             _defaultSize = defaultSize;
             _objectParent = null;
@@ -62,6 +64,7 @@ namespace LittleBit.Modules.Pool
         private GameObject CreateNewObject()
         {
             GameObject poolableInstance = _creatorPoolObject.InstantiatePrefab(_template);
+            poolableInstance.gameObject.SetActive(false);
             poolableInstance.name = _name + " (Pooled)";
             poolableInstance.transform.SetParent(ObjectParent);
             return poolableInstance;
