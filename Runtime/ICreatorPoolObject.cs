@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Object = System.Object;
 
 namespace LittleBit.Modules.Pool
 {
