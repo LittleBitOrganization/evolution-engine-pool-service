@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace LittleBit.Modules.Pool
 {
     public class PoolService : IPoolService
     {
         private readonly ICreatorPoolObject _creatorPoolObject;
-
+        [Preserve]
         public PoolService(ICreatorPoolObject creatorPoolObject)
         {
             _creatorPoolObject = creatorPoolObject;
